@@ -1,0 +1,19 @@
+*{margin:0; padding: 0;}
+.all{display: flex;
+    .left{
+        width: 50%;
+        display: flex;
+        flex-shrink: 0;
+    }//left
+    .right{
+        width: 50%;
+        table{
+            display: flex;
+            flex-direction: column;
+            tr{
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+    }//right
+}
