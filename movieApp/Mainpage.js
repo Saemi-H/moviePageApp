@@ -1,11 +1,13 @@
 import React from 'react';
 import './css/main.css'
 
-const Mainpage = ({movies}) => {
+const Mainpage = ({movies, onPop}) => {
     return (
-        movies.map(movie=>
-            <div className='all' key={movie.length}>
-                <div className="left">
+        
+            <div className='all'>
+                {movies.map((movie, index)=>
+               
+                <div className="left" key={index} data-key={index} onClick={()=>onPop(index)}>
                     <div className="pic">
                         <img src={`${movie.thumbUrl}`} alt="poster"/>
                     </div>
@@ -24,6 +26,7 @@ const Mainpage = ({movies}) => {
                         </ul>
                     </div>
                 </div>
+                )}
                 <div className="right">
                     <table>
                         <thead>
@@ -35,17 +38,19 @@ const Mainpage = ({movies}) => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                        {movies.map((movie, index)=>
+                            <tr key={index}>
                                 <td>{movie.movieNm}</td>
                                 <td>{movie.salesAmt}</td>
                                 <td>{movie.audiCnt}</td>
                                 <td>{movie.rankInten}</td>
                             </tr>
-                        </tbody>
+                            )}
+                        </tbody>    
                     </table>
                 </div>
         </div>
-        )
+       
     );
 };
 
